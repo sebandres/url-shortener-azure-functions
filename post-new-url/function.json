@@ -1,5 +1,5 @@
 {
-  "scriptFile": "bin/post-new-url.dll",
+  "scriptFile": "post-new-url.dll",
   "entryPoint": "urlshortener.PostNewUrl.Run",
   "disabled": false,
   "bindings": [
