@@ -15,10 +15,10 @@ namespace urlshortener
                 .Value;
                 */
             // Get request body
-            dynamic data = await req.Content.ReadAsAsync<object>();
+            //var data = await req.Content.ReadAsStringAsync();
 
             // Set name to query string or body data
-            name = name ?? data?.name;
+            //name = name ?? data;
 
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
