@@ -62,5 +62,11 @@
     </Content>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Functions\url-shortener.csproj">
+      <Project>{db3773ac-6782-4c52-a0a2-44b4c2532bfb}</Project>
+      <Name>url-shortener</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
