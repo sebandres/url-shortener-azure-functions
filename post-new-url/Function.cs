@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace urlshortener
 {
@@ -11,7 +12,7 @@ namespace urlshortener
         public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string name)
         {
             var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false);
 
         var configuration = builder.Build();
 
@@ -28,7 +29,7 @@ namespace urlshortener
 
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, $"Hello you {name} {configuration["test"]}");
+                : req.CreateResponse(HttpStatusCode.OK, $"Hello you {name} { Environment.GetEnvironmentVariable("test")}");
         }
     }
 }
