@@ -5,6 +5,8 @@ using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Configuration;
+using System.Reflection;
+using Microsoft.Extensions.FileProviders;
 
 namespace urlshortener
 {
@@ -12,7 +14,10 @@ namespace urlshortener
     {
         public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string name)
         {
+            Assembly assembly = typeof(PostNewUrl).GetTypeInfo().Assembly;
+
             var builder = new ConfigurationBuilder()
+                .AddJsonFile(new EmbeddedFileProvider(assembly), name, true, false)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false);
 
             var configuration = builder.Build();
