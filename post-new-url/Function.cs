@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Configuration;
 
 namespace urlshortener
 {
@@ -29,7 +30,7 @@ namespace urlshortener
 
             return name == null
                 ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, $"Hello you {name} {configuration["Values:test"]} {configuration["test"]} {Environment.GetEnvironmentVariable("test", EnvironmentVariableTarget.Process)}");
+                : req.CreateResponse(HttpStatusCode.OK, $"Hello you {name} - {ConfigurationManager.AppSettings["test"]} - {configuration["Values:test"]} - {configuration["test"]} - {Environment.GetEnvironmentVariable("test", EnvironmentVariableTarget.Process)}");
         }
     }
 }
