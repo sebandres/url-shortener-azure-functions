@@ -17,7 +17,7 @@ namespace urlshortener
             Assembly assembly = typeof(PostNewUrl).GetTypeInfo().Assembly;
 
             var builder = new ConfigurationBuilder()
-                .AddJsonFile(new EmbeddedFileProvider(assembly), "appsettings.json", true, false);
+                .AddJsonFile(new EmbeddedFileProvider(assembly, "post_new_url"), "appsettings.json", true, false);
                 //.AddJsonFile("appsettings.json", optional: true, reloadOnChange: false);
 
             var configuration = builder.Build();
