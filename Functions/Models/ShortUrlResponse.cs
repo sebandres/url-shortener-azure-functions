@@ -19,7 +19,7 @@ namespace Urlshortener.Models
             public Dictionary<string, string> Errors { get; set; }
         }
 
-        private object value;
+        public object value;
         public HttpStatusCode StatusCode { get; set; }
 
         private string[] validUrlScheme = { "ftp", "http", "https" };

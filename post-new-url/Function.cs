@@ -9,6 +9,8 @@ using System.Reflection;
 using Microsoft.Extensions.FileProviders;
 using Urlshortener.Models;
 using Urlshortener.Functions;
+using System.Text;
+using Newtonsoft.Json.Linq;
 
 namespace urlshortener
 {
@@ -30,7 +32,11 @@ namespace urlshortener
                 ShortenUrlFunctions.ShortenUrl,
                 (hash) => ShortenUrlFunctions.RetrieveShortUrl(() => configuration["StorageConnection"], hash),
                 request);
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            return new HttpResponseMessage
+            {
+                StatusCode = result.StatusCode,
+                Content = new StringContent(JObject.FromObject(result.value).ToString(), Encoding.UTF8, "application/json")
+            };
         }
     }
 }
