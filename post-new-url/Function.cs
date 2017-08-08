@@ -16,7 +16,7 @@ namespace urlshortener
 {
     public class PostNewUrl
     {
-        public static async Task<HttpResponseMessage> Run(ShortUrlRequest request, string name)
+        public static HttpResponseMessage Run(ShortUrlRequest request, string name)
         {
             Assembly assembly = typeof(PostNewUrl).GetTypeInfo().Assembly;
 
