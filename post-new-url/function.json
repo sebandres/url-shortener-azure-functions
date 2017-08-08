@@ -8,8 +8,7 @@
       "name": "req",
       "type": "httpTrigger",
       "direction": "in",
-      "webHookType": "genericJson",
-      "route": "urlshortener/",
+      "route": "urlshortener/new",
       "methods": [
         "post"
       ]
