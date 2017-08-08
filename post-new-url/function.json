@@ -8,9 +8,9 @@
       "name": "req",
       "type": "httpTrigger",
       "direction": "in",
-      "route": "urlshortener/name/{name}",
+      "route": "urlshortener",
       "methods": [
-        "get"
+        "post"
       ]
     },
     {
