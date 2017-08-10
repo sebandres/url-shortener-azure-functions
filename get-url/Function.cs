@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
 using System.Net.Http;
 using System.Reflection;
@@ -9,7 +10,7 @@ namespace urlshortener
 {
     public class GetUrl
     {
-        public static async Task<HttpResponseMessage> Run(string hash)
+        public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string hash, TraceWriter log)
         {
             Assembly assembly = typeof(GetUrl).GetTypeInfo().Assembly;
 
