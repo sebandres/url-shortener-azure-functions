@@ -1,0 +1,22 @@
+{
+  "scriptFile": "get-url.dll",
+  "entryPoint": "urlshortener.GetUrl.Run",
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "urlshortener/{hash}",
+      "methods": [
+        "get"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "scriptFile": "post-new-url.dll",
+  "entryPoint": "urlshortener.PostNewUrl.Run",
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "urlshortener/new",
+      "methods": [
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
