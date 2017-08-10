@@ -11,12 +11,13 @@ using Urlshortener.Models;
 using Urlshortener.Functions;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using Microsoft.Azure.WebJobs.Host;
 
 namespace urlshortener
 {
     public class PostNewUrl
     {
-        public static HttpResponseMessage Run(ShortUrlRequest request)
+        public static HttpResponseMessage Run(ShortUrlRequest request, TraceWriter log)
         {
             Assembly assembly = typeof(PostNewUrl).GetTypeInfo().Assembly;
 
