@@ -8,14 +8,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FF45462F-0CCA-40CB-A1A4-21AAB6541EC6}"
 	ProjectSection(SolutionItems) = preProject
 		host.json = host.json
+		README.md = README.md
 		run.bat = run.bat
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "url-shortener", "Functions\url-shortener.csproj", "{DB3773AC-6782-4C52-A0A2-44B4C2532BFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "url-shortener", "url-shortener\url-shortener.csproj", "{DB3773AC-6782-4C52-A0A2-44B4C2532BFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "get-url", "get-url\get-url.csproj", "{49B42171-7940-4D08-B1AA-FA71360AAC4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "url-shortener.tests", "url-shortener.tests2\url-shortener.tests.csproj", "{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "url-shortener.tests", "url-shortener.tests\url-shortener.tests.csproj", "{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
