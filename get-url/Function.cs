@@ -1,6 +1,7 @@
 ﻿using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
+using System;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -12,10 +13,13 @@ namespace urlshortener
     {
         public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string hash, TraceWriter log)
         {
+            var environment = Environment.GetEnvironmentVariable("FUNCTION_ENVIRONMENT");
+
             Assembly assembly = typeof(GetUrl).GetTypeInfo().Assembly;
 
             var builder = new ConfigurationBuilder()
-                .AddJsonFile(new EmbeddedFileProvider(assembly, "get_url"), "appsettings.json", true, false);
+                .AddJsonFile(new EmbeddedFileProvider(assembly, "get_url"), "appsettings.json", true, false)
+                .AddJsonFile(new EmbeddedFileProvider(assembly, "get_url"), $"appsettings.{environment}.json", true, false);
 
             var configuration = builder.Build();
 
