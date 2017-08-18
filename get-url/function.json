@@ -8,7 +8,7 @@
       "name": "req",
       "type": "httpTrigger",
       "direction": "in",
-      "route": "urlshortener/{hash}",
+      "route": "urlshorten/{hash}",
       "methods": [
         "get"
       ]
